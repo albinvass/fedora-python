@@ -3,7 +3,10 @@ RUN dnf install -y \
     gcc \
     python \
     iproute \
+    pip\
     git
+
+RUN pip install bindep
 
 RUN adduser \
     -d /home/zuul \
