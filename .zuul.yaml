@@ -1,0 +1,14 @@
+- project:
+    check:
+      jobs: &id001
+        - build-docker-image:
+            vars:
+              docker_images:
+                - context: .
+                  repository: ghcr.io/albinvass/fedora-python
+            nodeset:
+              nodes:
+                - name: ubuntu-20.04
+                  label: ec2-t3-micro-ubuntu-20.04
+    gate:
+      jobs: *id001
