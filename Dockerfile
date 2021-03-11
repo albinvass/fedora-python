@@ -8,9 +8,9 @@ RUN dnf install -y \
 
 RUN pip install bindep
 
-ENV CARGO_HOME=/usr
-ENV RUSTUP_HOME=/usr
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path --default-toolchain stable
+RUN export CARGO_HOME=/usr && export RUSTUP_HOME=/usr && \
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
+    | sh -s -- -y --no-modify-path --default-toolchain stable
 
 RUN adduser \
     -d /home/zuul \
